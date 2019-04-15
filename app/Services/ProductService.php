@@ -45,7 +45,7 @@ class ProductService
     public function publishNewProduct(Product $product): void
     {
         // select platform to publish
-        $platforms = $product->setupPlatform([
+        $platforms = $this->setupPlatform([
             PchomeFactory::class,
             ShopeeFactory::class,
             RutenFactory::class
