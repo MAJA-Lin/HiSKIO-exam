@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Models\Platforms\Platform;
-use App\Factories\PlatformFactoryInterface;
 
 class Product
 {
@@ -13,12 +12,12 @@ class Product
     protected $platforms = [];
 
     /**
-     * @param PlatformFactoryInterface $factory
+     * @param string $factory
      * @return Platform
      */
-    public function getPlatform(PlatformFactoryInterface $factory): Platform
+    public function getPlatform(string $factory): Platform
     {
-        return $factory->createPlatform();
+        return (new $factory)->createPlatform();
     }
 
     /**
