@@ -12,10 +12,18 @@ class Product
     protected $platforms = [];
 
     /**
+     * @return array
+     */
+    public function getAttachedPlatforms(): array
+    {
+        return $this->platforms;
+    }
+
+    /**
      * @param string $factory
      * @return Platform
      */
-    public function getPlatform(string $factory): Platform
+    public function createPlatform(string $factory): Platform
     {
         return (new $factory)->createPlatform();
     }
@@ -28,13 +36,11 @@ class Product
      */
     public function setupPlatforms(array $platformClasses): self
     {
-        var_dump($platformClasses);
-
         // Reset platforms to avoid problems
         $this->platforms = [];
 
         foreach ($platformClasses as $platformClass) {
-            $this->platforms[] = $this->getPlatform($platformClass);
+            $this->platforms[] = $this->createPlatform($platformClass);
         }
 
         return $this;
