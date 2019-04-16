@@ -73,7 +73,7 @@ CHANGE_SOURCE=false
 ### Docker Sync ###########################################
 
 # If you are using Docker Sync. For `osx` use 'native_osx', for `windows` use 'unison', for `linux` docker-sync is not required
-DOCKER_SYNC_STRATEGY=native_osx
+DOCKER_SYNC_STRATEGY=unison
 
 ###########################################################
 ################ Containers Customization #################
@@ -116,7 +116,7 @@ WORKSPACE_INSTALL_V8JS=false
 WORKSPACE_INSTALL_LARAVEL_ENVOY=false
 WORKSPACE_INSTALL_LARAVEL_INSTALLER=false
 WORKSPACE_INSTALL_DEPLOYER=false
-WORKSPACE_INSTALL_PRESTISSIMO=false
+WORKSPACE_INSTALL_PRESTISSIMO=true
 WORKSPACE_INSTALL_LINUXBREW=false
 WORKSPACE_INSTALL_MC=false
 WORKSPACE_INSTALL_SYMFONY=false
@@ -138,7 +138,7 @@ WORKSPACE_PUID=1000
 WORKSPACE_PGID=1000
 WORKSPACE_CHROME_DRIVER_VERSION=2.42
 WORKSPACE_TIMEZONE=UTC
-WORKSPACE_SSH_PORT=2222
+WORKSPACE_SSH_PORT=22222
 WORKSPACE_INSTALL_FFMPEG=false
 
 ### PHP_FPM ###############################################
