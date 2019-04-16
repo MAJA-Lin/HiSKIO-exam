@@ -28,16 +28,17 @@ fi
 /bin/cp -f ./default.conf ./docker/nginx/sites/default.conf
 
 # Overwrite Caddy file
-# /bin/cp -f ./Caddyfile ./docker/caddy/caddy/Caddyfile
+/bin/cp -f ./Caddyfile ./docker/caddy/caddy/Caddyfile
+/bin/cp -f ./caddy-dockerfile ./docker/caddy/Dockerfile
 
 # Overwrite docker-compose.yml for certbot configuration
 /bin/cp -f ./docker-compose.yml ./docker/docker-compose.yml
 
 # Start services
 cd ./docker
-docker-compose up certbot
-docker-compose up -d nginx php-fpm redis workspace
-# docker-compose up -d php-fpm redis workspace caddy
+# docker-compose up certbot
+# docker-compose up -d php-fpm redis workspace nginx
+docker-compose up -d caddy php-fpm redis workspace
 
 # Install package dependency
 docker-compose exec workspace composer install
