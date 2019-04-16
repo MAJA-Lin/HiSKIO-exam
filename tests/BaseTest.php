@@ -32,4 +32,9 @@ class BaseTest extends TestCase
         $property->setAccessible(true);
         return $property->getValue($class);
     }
+
+    protected function getPlatformPublishMessage(string $className)
+    {
+        return $this->getProperty($className, 'publishMessage');
+    }
 }

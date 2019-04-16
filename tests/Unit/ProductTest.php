@@ -67,9 +67,9 @@ class ProductTest extends BaseTest
     public function testPublish()
     {
         $responseMessages = [
-            $this->getProperty(\App\Models\Platforms\Shopee::class, 'publishMessage'),
-            $this->getProperty(\App\Models\Platforms\Ruten::class, 'publishMessage'),
-            $this->getProperty(\App\Models\Platforms\Yahoo::class, 'publishMessage'),
+            $this->getPlatformPublishMessage(\App\Models\Platforms\Shopee::class),
+            $this->getPlatformPublishMessage(\App\Models\Platforms\Ruten::class),
+            $this->getPlatformPublishMessage(\App\Models\Platforms\Yahoo::class),
         ];
 
         // Check product->platforms is default

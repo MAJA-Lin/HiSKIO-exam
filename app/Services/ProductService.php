@@ -14,9 +14,9 @@ class ProductService
 {
     /**
      * @param Product $product Product which is going to be published
-     * @return void
+     * @return array
      */
-    public function publishNewProduct(Product $product): void
+    public function publishNewProduct(Product $product): array
     {
         // Attach platforms to publish
         $product->setupPlatforms([
@@ -25,6 +25,6 @@ class ProductService
             RutenFactory::class
         ]);
 
-        $product->publish();
+        return $product->publish();
     }
 }
