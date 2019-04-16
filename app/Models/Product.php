@@ -48,12 +48,16 @@ class Product
 
     /**
      * Publish product information to platforms
-     * @return void
+     * @return array
      */
-    public function publish()
+    public function publish(): array
     {
+        $result = [];
+
         foreach ($this->platforms as $platform) {
-            $platform->publish($this);
+            $result[] = $platform->publish($this);
         }
+
+        return $result;
     }
 }
