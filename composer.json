@@ -28,6 +28,7 @@
     },
     "scripts": {
         "test:build": "docker build -t dev/php73-xdebug .",
-        "test:run-win": "docker run --rm --name tester -v %cd%:/usr/dir dev/php73-xdebug ./vendor/bin/phpunit --coverage-html ./tests/report"
+        "test:run-win": "docker run --rm --name tester -v %cd%:/usr/dir dev/php73-xdebug ./vendor/bin/phpunit --coverage-html ./tests/report",
+        "test:run-linux": "docker run --rm --name tester -v PWD:/usr/dir dev/php73-xdebug ./vendor/bin/phpunit --coverage-html ./tests/report"
     }
 }
