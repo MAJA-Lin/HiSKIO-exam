@@ -8,10 +8,10 @@
         }
     ],
     "require": {
-        "php": ">=7.1.3"
+        "php": ">=7.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "~7.0"
+        "phpunit/phpunit": "~8.0"
     },
     "autoload": {
         "classmap": [
@@ -23,7 +23,11 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
-            "Database\\": "database"
+            "Tests\\App\\": "tests/app/"
         }
+    },
+    "scripts": {
+        "test:build": "docker build -t dev/php73-xdebug .",
+        "test:run-win": "docker run --rm --name tester -v %cd%:/usr/dir dev/php73-xdebug ./vendor/bin/phpunit --coverage-html ./tests/report"
     }
 }
